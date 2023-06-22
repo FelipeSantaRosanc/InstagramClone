@@ -23,16 +23,19 @@ export const styles = StyleSheet.create({
     gap: 20,
   },
   stores: {
-    height: 104,
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
     paddingLeft: 10,
     paddingVertical: 10,
+    padding: 2,
   },
   storesCard: {
     borderRadius: 50,
     marginRight: 14,
+    borderWidth: 2,
+    borderColor: "#f7b55a",
+    alignContent: 'center',
   },
   storesCardImage: {
     width: 64,
@@ -42,7 +45,7 @@ export const styles = StyleSheet.create({
   },
   content: {
     width: "100%",
-    marginBottom: 20,
+    marginBottom: 10,
   },
   contentHeader: {
     height: 52,

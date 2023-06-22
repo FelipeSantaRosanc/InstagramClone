@@ -6,9 +6,9 @@ import {
   TouchableOpacity,
   Button,
 } from "react-native";
-import {NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 
-import React from "react";
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { styles } from "./styles";
@@ -16,12 +16,18 @@ import Logo from "../../assets/logo.png";
 import { RootStackParamList } from "../../routes";
 import { useNavigation } from "@react-navigation/native";
 
-type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'Home'>;
+import { AiFillEye } from "react-icons/Ai";
 
+type HomeScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  "Home"
+>;
 
-
-  const Login = () => {
+const Login = () => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
+
+  const [isPassword, setIsPassword] = useState(false);
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#fff" translucent={false} />
@@ -32,7 +38,18 @@ type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'H
         placeholder="Celular, Username ou email"
         style={styles.input}
       />
-      <TextInput placeholder="Sua senha" style={styles.input} />
+
+      <TextInput
+        placeholder="Sua senha"
+        secureTextEntry={isPassword}
+        style={styles.input}
+      />
+
+      <TouchableOpacity onPress={() => setIsPassword(!isPassword)}>
+        <FontAwesome5 name="eye" size={24} color="black" />
+        
+      </TouchableOpacity>
+      
 
       <View style={styles.forgotContainer}>
         <TouchableOpacity>
@@ -40,7 +57,10 @@ type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'H
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.loginButton} onPress={() =>navigation.navigate('Home')}>
+      <TouchableOpacity
+        style={styles.loginButton}
+        onPress={() => navigation.navigate("Home")}
+      >
         <Text style={styles.loginText}>Acessar</Text>
       </TouchableOpacity>
 
@@ -56,5 +76,5 @@ type HomeScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, 'H
       </TouchableOpacity>
     </View>
   );
-}
-export default Login
+};
+export default Login;

@@ -3,13 +3,19 @@ import {StyleSheet, Platform} from 'react-native';
 export const styles = StyleSheet.create({
   input: {
     width: "90%",
-    height: 42,
+    height: "50",
     backgroundColor: "#f4f3f3",
     marginBottom: 20,
-    padding: 8,
+    padding: '10px',
     borderRadius: 5,
     borderWidth: 1,
-    borderColor: "#e0e0e0",
+    borderColor: "#e0e0e0", 
+    
+  },
+  eyeslash:{
+    marginTop:45,
+    marginLeft:40,
+    position:'absolute'
   },
   forgotContainer: {
     width: "90%",
